@@ -118,7 +118,7 @@ class Stream extends EventEmitter implements DuplexStreamInterface
 
     public function handleData($stream)
     {
-        $data = fread($stream, $this->bufferSize);
+        $data = stream_get_contents($stream, $this->bufferSize);
 
         $this->emit('data', array($data, $this));
 
